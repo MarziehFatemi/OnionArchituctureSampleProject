@@ -10,6 +10,9 @@ namespace Onion.Domain.Product_agg
     {
         Product Get(int id);
         void Create(Product product);
+        void SaveChanges();
+        List<Product> Search(string name);
+
 
     }
 }
