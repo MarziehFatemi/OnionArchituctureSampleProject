@@ -14,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Onion.Application.Contracts\Onion.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Onion.Application\Onion.Application.csproj" />
     <ProjectReference Include="..\Onion.Infrastructure.EfCore\Onion.Infrastructure.EfCore.csproj" />
   </ItemGroup>
 
