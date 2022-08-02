@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Onion.Application.Contracts
 {
-    public interface IProductCategoryRepository
+    public interface IProductCategoryApplication
     {
        
         void Create(CreateProductCategoryCommand Command);
