@@ -5,6 +5,14 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnionArchituctureSampleProject", "OnionArchituctureSampleProject\OnionArchituctureSampleProject.csproj", "{7887CBCA-804D-4261-A3D4-D711724D09F6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{AB356299-07B2-4552-85DA-71409B505E3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{571B0D82-AEC1-42C7-A403-2FE9C72641C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{CF5B02E9-453F-48C0-A1DB-79680F2E3483}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B5499454-C382-4575-A1EA-052E0BB13D51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +26,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7887CBCA-804D-4261-A3D4-D711724D09F6} = {B5499454-C382-4575-A1EA-052E0BB13D51}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {306E2FFC-1F62-4EB8-851C-0DA1337E4ABA}
