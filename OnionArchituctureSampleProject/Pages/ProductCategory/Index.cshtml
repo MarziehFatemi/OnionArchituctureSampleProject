@@ -3,7 +3,7 @@
 @{
 }
 
-<a  asp-page ="/ProductCategory/Create" class="btn btn-Success" > ایجاد گروه جدید</a>
+<a  asp-page ="/ProductCategory/Create" class="btn btn-success" > ایجاد گروه جدید</a>
 
 
 
@@ -12,20 +12,20 @@
 <table class="table table-bordered table-striped">
 <thead>
 <tr>
-<td> شماره  </td>
-<td>   نام </td>
-<td>  تاریخ ایجاد  </td>
+<td > شماره </td>
+<td > نام </td>
+<td >   تاریخ ایجاد </td>
 <td>  عملیات </td>
 
 </tr>
  </thead>
 <tbody>
-@foreach ( var ProductCategory in @Model._ProductCategoryViewModel)
+@foreach ( var _ProductCategory in @Model._ProductCategoryViewModel)
 {
 <tr>
-<th>ProductCategory.Id</th>
-<th>ProductCategory.Name</th>
-<th>ProductCategory.CreationDate</th>
+<th>@_ProductCategory.Id</th>
+<th>@_ProductCategory.Name</th>
+<th>@_ProductCategory.CreationDate</th>
 <th>
 	<a  asp-page ="/Edit" class="btn btn-info" > ویرایش </a>
 	<a  asp-page-handler ="Delete" class="btn btn-danger" >  غیر فعال کردن</a>

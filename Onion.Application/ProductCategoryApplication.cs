@@ -30,16 +30,29 @@ namespace Onion.Application
             {
                 var PCategory = new ProductCategory(Command.Name);
                 ProductCatecoryRepository.Create(PCategory);
-                ProductCatecoryRepository.SaveChanges();
-                Error = "با موفقیت ذخیره شد";
-                return true; 
+                if (ProductCatecoryRepository.SaveChanges(out Error))
+                {
+                    Error = "با موفقیت ذخیره شد";
+                    return true;
+                }
+                else
+                {
+                    return false; 
+                }
              }
         }
 
-        public void Edit(EditProductCategoryCommand Command)
+        public bool Edit(EditProductCategoryCommand Command, out string Error)
         {
             ProductCatecoryRepository.Edit(Command.Id, Command.Name);
-            ProductCatecoryRepository.SaveChanges();
+            if (ProductCatecoryRepository.SaveChanges(out Error))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
 
         }

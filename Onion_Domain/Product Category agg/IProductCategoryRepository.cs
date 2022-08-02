@@ -10,7 +10,7 @@ namespace Onion.Domain.Product_Category_agg
         bool Exist(string categoryName);
         void Create(ProductCategory productCategory);
         void Edit(int id, string Name); 
-        void SaveChanges();
+        bool SaveChanges(out string Error);
         List<ProductCategory> Search(string name);
 
     }

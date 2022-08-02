@@ -22,14 +22,23 @@ namespace OnionArchituctureSampleProject.Pages.ProductCategory
         public IActionResult OnPost(CreateProductCategoryCommand Command)
         {
             string Error = "";
-            if (_IProductCategoryApplication.Create(Command, out Error))
+            if (ModelState.IsValid)
             {
-                return RedirectToPage("/ProductCategory/Index");
+                if (_IProductCategoryApplication.Create(Command, out Error))
+                {
+                    return RedirectToPage("/ProductCategory/Index");
+                }
+                else
+                {
+                    ViewData["Error"] = Error;
+                    return Page();
+                }
             }
             else
             {
-                ViewData["Error"] = Error;
-                return Page(); 
+                Error = ModelState.Select(x => x.Value.Errors)
+                           .Where(y => y.Count > 0).ToString(); 
+                return Page();
             }
 
 

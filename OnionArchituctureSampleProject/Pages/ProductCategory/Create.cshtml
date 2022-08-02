@@ -6,15 +6,22 @@
 @if (ViewData["Error"]!= null)
 {
 	<div class="alert-danger">
-		<p> ViewData["Error"]</p>
+		<p> @ViewData["Error"]</p>
 	</div>
 
 }
 
-<form  method="post">
-<lable asp-for="@Model.Command.Name" ></lable>
-<input  asp-for="@Model.Command.Name" class="form-control"> </input>
 
-<button type="submit" class="btn btn-success"> ذخیره  </button>
+
+<form class="mr-auto ml-auto" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="@Model.Command.Name"></label>
+            <input class="form-control" asp-for="@Model.Command.Name">
+            <span asp-validation-for="@Model.Command.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">ارسال</button>
 </form>
 

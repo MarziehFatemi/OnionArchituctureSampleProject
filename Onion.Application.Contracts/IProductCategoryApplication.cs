@@ -10,7 +10,7 @@ namespace Onion.Application.Contracts
     {
        
         bool Create(CreateProductCategoryCommand Command, out string Error);
-        void Edit (EditProductCategoryCommand Command);
+        bool Edit (EditProductCategoryCommand Command, out string Error);
         List<ProductCategoryViewModel> Search(string name);
         List<ProductCategoryViewModel> GetAll();
 

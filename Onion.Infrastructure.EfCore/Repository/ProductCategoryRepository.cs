@@ -40,9 +40,20 @@ namespace Onion.Infrastructure.EfCore.Repository
             }
 
         }
-        public void SaveChanges()
+        public bool SaveChanges(out string Error)
         {
-            _context.SaveChanges(); 
+            try
+            {
+                _context.SaveChanges();
+                Error = "با موفقیت انجام شد";
+                return true; 
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                return false; 
+
+            }
         }
 
         public List<ProductCategory> Search(string name)
