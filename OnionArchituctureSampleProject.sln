@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onion.Application", "Onion.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onion.Infrastructure.EfCore", "Onion.Infrastructure.EfCore\Onion.Infrastructure.EfCore.csproj", "{A3E9DA6E-6560-4006-8F08-5679A7DA14C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Onion_Domain", "Onion_Domain\Onion_Domain.csproj", "{C1368918-76ED-4BD6-80E0-946DBAFCDED5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Onion_Domain", "Onion_Domain\Onion_Domain.csproj", "{C1368918-76ED-4BD6-80E0-946DBAFCDED5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,10 +9,11 @@ namespace Onion.Application.Contracts
     public interface IProductCategoryApplication
     {
        
-        void Create(CreateProductCategoryCommand Command);
+        bool Create(CreateProductCategoryCommand Command, out string Error);
         void Edit (EditProductCategoryCommand Command);
-        List<ProdcutCategoryViewModel> Search(string name);
+        List<ProductCategoryViewModel> Search(string name);
+        List<ProductCategoryViewModel> GetAll();
 
-         
+
     }
 }

@@ -1,0 +1,40 @@
+﻿@page
+@model OnionArchituctureSampleProject.Pages.ProductCategory.IndexModel
+@{
+}
+
+<a  asp-page ="/ProductCategory/Create" class="btn btn-Success" > ایجاد گروه جدید</a>
+
+
+
+<div class ="col-12">
+
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+<td> شماره  </td>
+<td>   نام </td>
+<td>  تاریخ ایجاد  </td>
+<td>  عملیات </td>
+
+</tr>
+ </thead>
+<tbody>
+@foreach ( var ProductCategory in @Model._ProductCategoryViewModel)
+{
+<tr>
+<th>ProductCategory.Id</th>
+<th>ProductCategory.Name</th>
+<th>ProductCategory.CreationDate</th>
+<th>
+	<a  asp-page ="/Edit" class="btn btn-info" > ویرایش </a>
+	<a  asp-page-handler ="Delete" class="btn btn-danger" >  غیر فعال کردن</a>
+</th>
+
+</tr>
+}
+</tbody>
+</table>
+
+</div>
+</div>

@@ -18,14 +18,22 @@ namespace Onion.Application
         }
 
 
-        public void Create(CreateProductCategoryCommand Command)
+        public bool Create(CreateProductCategoryCommand Command, out string Error)
         {
             if (ProductCatecoryRepository.Exist(Command.Name))
-                return; 
+            {
+                Error = "نام گروه تکراری است یک نام متفاوت انتخاب کنید";
 
-            var PCategory = new ProductCategory(Command.Name); 
-            ProductCatecoryRepository.Create(PCategory);
-            ProductCatecoryRepository.SaveChanges();
+                return false;
+            }
+            else
+            {
+                var PCategory = new ProductCategory(Command.Name);
+                ProductCatecoryRepository.Create(PCategory);
+                ProductCatecoryRepository.SaveChanges();
+                Error = "با موفقیت ذخیره شد";
+                return true; 
+             }
         }
 
         public void Edit(EditProductCategoryCommand Command)
@@ -36,12 +44,20 @@ namespace Onion.Application
 
         }
 
-        public List<ProdcutCategoryViewModel> Search(string name)
+        public List<ProductCategoryViewModel> Search(string name)
         {
-            ProdcutCategoryViewModel Instance = new ProdcutCategoryViewModel(); 
+            ProductCategoryViewModel Instance = new ProductCategoryViewModel(); 
             return Instance.MapFromProductCategory(ProductCatecoryRepository.Search(name)); 
         
                     
+        }
+
+        public List<ProductCategoryViewModel> GetAll()
+        {
+            ProductCategoryViewModel Instance = new ProductCategoryViewModel();
+            return Instance.MapFromProductCategory(ProductCatecoryRepository.GetAll());
+
+
         }
     }
 }

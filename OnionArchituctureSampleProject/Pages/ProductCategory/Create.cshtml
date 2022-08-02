@@ -1,0 +1,20 @@
+﻿@page
+@model OnionArchituctureSampleProject.Pages.ProductCategory.CreateModel
+@{
+}
+
+@if (ViewData["Error"]!= null)
+{
+	<div class="alert-danger">
+		<p> ViewData["Error"]</p>
+	</div>
+
+}
+
+<form  method="post">
+<lable asp-for="@Model.Command.Name" ></lable>
+<input  asp-for="@Model.Command.Name" class="form-control"> </input>
+
+<button type="submit" class="btn btn-success"> ذخیره  </button>
+</form>
+

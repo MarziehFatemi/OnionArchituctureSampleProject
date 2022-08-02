@@ -36,5 +36,9 @@ namespace Onion.Infrastructure.EfCore.Repository
                 .ToList();
          
         }
+        public List<Product> GetAll()
+        {
+            return _context.products.ToList();
+        }
     }
 }

@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 namespace Onion.Application.Contracts
 {
 
-    public class ProdcutCategoryViewModel
+    public class ProductCategoryViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string CreationDate { get; set; }
 
-        public ProdcutCategoryViewModel()
+        public ProductCategoryViewModel()
         {
 
         }
-        public ProdcutCategoryViewModel(int id, string name, DateTime creationDate)
+        public ProductCategoryViewModel(int id, string name, DateTime creationDate)
         {
             Id = id;
             Name = name;
@@ -26,14 +26,14 @@ namespace Onion.Application.Contracts
         }
 
 
-        public List<ProdcutCategoryViewModel> MapFromProductCategory (List<ProductCategory> productCategories)
+        public List<ProductCategoryViewModel> MapFromProductCategory (List<ProductCategory> productCategories)
         {
-            List<ProdcutCategoryViewModel> prodcutCategoryViewModel = new List<ProdcutCategoryViewModel>(); ;
+            List<ProductCategoryViewModel> productCategoryViewModel = new List<ProductCategoryViewModel>(); ;
 
             foreach (var productCategory in productCategories)
             {
                
-                prodcutCategoryViewModel.Add(new ProdcutCategoryViewModel()
+                productCategoryViewModel.Add(new ProductCategoryViewModel()
                 {
                     Id = productCategory.Id,
                     Name = productCategory.Name,
@@ -44,7 +44,7 @@ namespace Onion.Application.Contracts
                
             }
 
-            return prodcutCategoryViewModel;
+            return productCategoryViewModel;
         }
     }
     

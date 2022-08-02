@@ -6,6 +6,7 @@ namespace Onion.Domain.Product_Category_agg
     public interface IProductCategoryRepository
     {
         ProductCategory Get(int id);
+        List<ProductCategory> GetAll(); 
         bool Exist(string categoryName);
         void Create(ProductCategory productCategory);
         void Edit(int id, string Name); 
