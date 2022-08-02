@@ -11,7 +11,8 @@ namespace Onion.Application.Contracts
        
         void Create(CreateProductCategoryCommand Command);
         void Edit (EditProductCategoryCommand Command);
-        List<ProdcutCategoryViewModel> Search(string name); 
+        List<ProdcutCategoryViewModel> Search(string name);
 
+         
     }
 }

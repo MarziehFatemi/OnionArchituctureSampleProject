@@ -20,11 +20,26 @@ namespace Onion.Infrastructure.EfCore.Repository
             _context.Add(productCategory); 
         }
 
+        public bool Exist(string categoryName)
+        {
+            return _context.productCategories.Any(c=>c.Name == categoryName); 
+        }
+
         public ProductCategory Get(int id)
         {
             return _context.productCategories.FirstOrDefault(c => c.Id == id);
         }
 
+        public void Edit (int id, string Name)
+        {
+            var category = Get(id);
+            if (category != null)
+            {
+                category.Edit(Name);
+                _context.productCategories.Update(category);
+            }
+
+        }
         public void SaveChanges()
         {
             _context.SaveChanges(); 
@@ -37,5 +52,6 @@ namespace Onion.Infrastructure.EfCore.Repository
                 .OrderBy(c => c.Id)
                 .ToList(); 
         }
+
     }
 }
