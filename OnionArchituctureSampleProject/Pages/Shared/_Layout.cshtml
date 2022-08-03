@@ -4,9 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] نمونه پروژه معماری پیازی</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/OnionArchituctureSampleProject.styles.css" asp-append-version="true" />
+*@
+<script defer src="~/fontawesome/js/all.js"></script>
+	<link id="theme-style" rel="stylesheet" href="~/css/theme-1.css">
+	<link id="theme-style" rel="stylesheet" href="~/css/style.css">
+
 </head>
 <body>
     <header>
@@ -36,9 +41,11 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="footer text-center py-4">
+            <small>
            یک نمونه پروژه از معماری پیازی و efcore نوشته شده توسط مرضیه فاطمی 
-        </div>
+            </small>
+       </div>
     </footer>
 
     <script src="~/plugins/jquery-3.4.1.min.js"></script>
@@ -47,10 +54,10 @@
 	<script  src="~/lib/jquery-validation/dist/jquery.validate.min.js"> </script>
 	<script src ="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" > </script>
 	
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Scripts", required: false)*@
 </body>
 </html>
