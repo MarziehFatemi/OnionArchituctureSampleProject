@@ -11,7 +11,11 @@ namespace Onion.Domain.Product_agg
         Product Get(int id);
         List<Product> GetAll();
         void Create(Product product);
-        void SaveChanges();
+        bool Edit (int id, int UnitPrice, string Name, int CategoryId, out string Error);
+        void Activate(Product product);
+        void DeActivate(Product product);
+
+        bool SaveChanges(out string Error);
         List<Product> Search(string name);
 
 

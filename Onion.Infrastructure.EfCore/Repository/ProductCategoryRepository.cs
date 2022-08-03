@@ -30,13 +30,20 @@ namespace Onion.Infrastructure.EfCore.Repository
             return _context.productCategories.FirstOrDefault(c => c.Id == id);
         }
 
-        public void Edit (int id, string Name)
+        public bool Edit (int id, string Name, out string Error)
         {
             var category = Get(id);
             if (category != null)
             {
                 category.Edit(Name);
                 _context.productCategories.Update(category);
+                Error = "با موفقیت ویرایش شد";
+                return true;
+            }
+            else
+            {
+                Error = " داده مزبور یافت نشد، موجود نیست";
+                return false; 
             }
 
         }
@@ -45,7 +52,7 @@ namespace Onion.Infrastructure.EfCore.Repository
             try
             {
                 _context.SaveChanges();
-                Error = "با موفقیت انجام شد";
+                Error = "با موفقیت ذخیره شد";
                 return true; 
             }
             catch (Exception ex)
