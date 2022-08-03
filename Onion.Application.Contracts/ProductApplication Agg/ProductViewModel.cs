@@ -18,11 +18,14 @@ namespace Onion.Application.Contracts.ProductApplication_Agg
         [Required(ErrorMessage = "قیمت اجباری است")]
         [MaxLength(255)]
         public int UnitPrice { get;  set; }
+
+
         [DisplayName("نام")]
         [Required(ErrorMessage = "نام اجباری است")]
         [MaxLength(255)]
         public string Name { get;  set; }
         public bool IsRemoved { get;  set; }
+
         [DisplayName("گروه محصول")]
         [Required(ErrorMessage = "گروه محصول اجباری است")]
         [MaxLength(255)]

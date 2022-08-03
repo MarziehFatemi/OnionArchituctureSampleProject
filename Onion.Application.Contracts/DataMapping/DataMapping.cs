@@ -20,7 +20,7 @@ namespace Onion.Application.Contracts.DataMapping
             {
 
                 productViewModel.Add(new ProductViewModel(product.Id, product.UintPrice,
-                    product.Name,product.IsRemoved, "", product.CreationDate.ToString())); 
+                    product.Name,product.IsRemoved, product.Category.Name, product.CreationDate.ToString())); 
              
             }
 

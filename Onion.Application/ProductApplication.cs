@@ -79,14 +79,16 @@ namespace Onion.Application
         }
         public List<ProductViewModel> Search(string name)
         {
-            return DataMapping.ProductList2ProductViewModelList(_IProductRepository.Search(name));
+            List<Product> products = _IProductRepository.Search(name); 
+            return DataMapping.ProductList2ProductViewModelList(products);
 
 
         }
 
         public List<ProductViewModel> GetAll()
         {
-          return DataMapping.ProductList2ProductViewModelList(_IProductRepository.GetAll()); 
+            List<Product> products = _IProductRepository.GetAll(); 
+          return DataMapping.ProductList2ProductViewModelList(products); 
         }
 
         public EditProductCommand GetBy(int id,out bool IsNull, out string Error)
