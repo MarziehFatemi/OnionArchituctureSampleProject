@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Onion.Application;
 using Onion.Application.Contracts;
+using Onion.Application.Contracts.ProductApplication_Agg;
+using Onion.Domain.Product_agg;
 using Onion.Domain.Product_Category_agg;
 using Onion.Infrastructure.EfCore;
 using Onion.Infrastructure.EfCore.Repository;
@@ -12,6 +14,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddTransient<IProductCategoryApplication, ProductCategoryApplication>();
 builder.Services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
+builder.Services.AddTransient<IProductAppication, ProductApplication>();
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
 
 
 

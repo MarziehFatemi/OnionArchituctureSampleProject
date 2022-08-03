@@ -3,3 +3,54 @@
 @{
 }
 <p> اینجا محصولات رو می بینیم. </p>
+
+<a  asp-page ="/Product/Create" class="btn btn-success" > ایجاد محصول جدید</a>
+
+
+
+<div class ="col-12">
+
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+<td > شماره </td>
+<td > نام </td>
+<td >قیمت  </td>
+<td > نام گروه محصول </td>
+<td >   تاریخ ایجاد </td>
+<td>  عملیات </td>
+
+</tr>
+ </thead>
+<tbody>
+@foreach ( var _Product in @Model.ProductsViewModel)
+{
+<tr>
+<th>@_Product.Id</th>
+<th>@_Product.Name</th>
+<th>@_Product.UnitPrice</th>
+<th>@_Product.Category</th>
+<th>@_Product.CreationDate</th>
+<th>
+	<a  asp-page ="/ProductCategory/Edit"  asp-route-id ="@_Product.Id"  class="btn btn-info" > ویرایش کردن</a>
+
+@if (@_Product.IsRemoved)
+						{
+							<a  asp-page-handler ="Activate"  asp-route-id ="@_Product.Id"  class="btn btn-warning" >  فعال کردن</a>
+
+						}
+						
+						else
+						{
+							<a  asp-page-handler ="DeActivate"  asp-route-id ="@_Product.Id"  class="btn btn-danger" >  غیر فعال کردن</a>
+
+						}
+					</th>
+
+</tr>
+}
+</tbody>
+</table>
+
+</div>
+</div>

@@ -1,4 +1,5 @@
 ﻿using Onion.Application.Contracts;
+using Onion.Application.Contracts.DataMapping;
 using Onion.Application.Contracts.ProductApplication_Agg;
 using Onion.Domain.Product_agg;
 using System;
@@ -57,7 +58,7 @@ namespace Onion.Application
 
         public List<ProductViewModel> GetAll()
         {
-            throw new NotImplementedException();
+          return DataMapping.ProductList2ProductViewModelList(_IProductRepository.GetAll()); 
         }
 
         public EditProductCommand GetBy(int id)

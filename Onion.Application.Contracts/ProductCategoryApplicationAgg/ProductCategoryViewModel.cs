@@ -31,26 +31,7 @@ namespace Onion.Application.Contracts
         }
 
 
-        public List<ProductCategoryViewModel> MapFromProductCategory (List<ProductCategory> productCategories)
-        {
-            List<ProductCategoryViewModel> productCategoryViewModel = new List<ProductCategoryViewModel>(); ;
-
-            foreach (var productCategory in productCategories)
-            {
-               
-                productCategoryViewModel.Add(new ProductCategoryViewModel()
-                {
-                    Id = productCategory.Id,
-                    Name = productCategory.Name,
-                    CreationDate = productCategory.CreationDate.ToString(),
-
-                }); 
-                 
-               
-            }
-
-            return productCategoryViewModel;
-        }
+        
     }
     
 }

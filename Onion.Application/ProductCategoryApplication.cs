@@ -1,4 +1,5 @@
 ﻿using Onion.Application.Contracts;
+using Onion.Application.Contracts.DataMapping;
 using Onion.Domain.Product_Category_agg;
 using System;
 using System.Collections.Generic;
@@ -66,16 +67,14 @@ namespace Onion.Application
 
         public List<ProductCategoryViewModel> Search(string name)
         {
-            ProductCategoryViewModel Instance = new ProductCategoryViewModel();
-            return Instance.MapFromProductCategory(ProductCatecoryRepository.Search(name));
+            return DataMapping.ProdCatList2ProdCatViewList(ProductCatecoryRepository.Search(name));
 
 
         }
 
         public List<ProductCategoryViewModel> GetAll()
         {
-            ProductCategoryViewModel Instance = new ProductCategoryViewModel();
-            return Instance.MapFromProductCategory(ProductCatecoryRepository.GetAll());
+            return DataMapping.ProdCatList2ProdCatViewList(ProductCatecoryRepository.GetAll());
 
 
         }
