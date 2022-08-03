@@ -23,6 +23,10 @@ namespace Onion.Infrastructure.EfCore.Repository
             #pragma warning restore CS8603 // Possible null reference return.
         }
 
+        public bool Exist ( string name, int Categoryid)
+        {
+            return _context.products.Any(c => c.Name == name && c.CategoryId == Categoryid); 
+        }
         public bool SaveChanges(out string Error)
         {
             try

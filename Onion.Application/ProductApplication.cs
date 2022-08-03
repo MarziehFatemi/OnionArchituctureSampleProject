@@ -34,9 +34,15 @@ namespace Onion.Application
 
         public bool Create(CreateProductCommand Command, out string Error)
         {
-            
-            _IProductRepository.Create(new Product(Command.UintPrice, Command.Name, Command.CategoryId));
-            return _IProductRepository.SaveChanges(out Error);
+            if (!_IProductRepository.Exist(Command.Name, Command.CategoryId))
+            {
+                _IProductRepository.Create(new Product(Command.UnitPrice, Command.Name, Command.CategoryId));
+                return _IProductRepository.SaveChanges(out Error);
+            }
+            {
+                Error = "نام و گروه محصول تکراری است. ";
+                return false; 
+            }
 
         }
 
@@ -45,7 +51,7 @@ namespace Onion.Application
         public bool Edit(EditProductCommand Command, out string Error)
         {
             
-            if (_IProductRepository.Edit(Command.Id, Command.UintPrice, Command.Name, Command.CategoryId, out Error))
+            if (_IProductRepository.Edit(Command.Id, Command.UnitPrice, Command.Name, Command.CategoryId, out Error))
             {
                 return _IProductRepository.SaveChanges(out Error);
             }
@@ -53,6 +59,12 @@ namespace Onion.Application
 
                 return false; 
             }
+
+        }
+        public List<ProductViewModel> Search(string name)
+        {
+            return DataMapping.ProductList2ProductViewModelList(_IProductRepository.Search(name));
+
 
         }
 
@@ -63,7 +75,8 @@ namespace Onion.Application
 
         public EditProductCommand GetBy(int id)
         {
-            throw new NotImplementedException();
+            return DataMapping.Product2EditProduct( _IProductRepository.Get(id));
+            
         }
     }
 }

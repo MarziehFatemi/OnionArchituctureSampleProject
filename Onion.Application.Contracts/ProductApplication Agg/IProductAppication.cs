@@ -6,6 +6,7 @@ namespace Onion.Application.Contracts.ProductApplication_Agg
     {
         EditProductCommand GetBy(int id);
         List<ProductViewModel> GetAll();
+        List<ProductViewModel> Search(string name);
         bool Activate(int id, out string Error);
         bool DeActivate(int id, out string Error);
         bool Edit(EditProductCommand Command, out string Error);

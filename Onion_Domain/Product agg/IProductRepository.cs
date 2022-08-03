@@ -14,7 +14,7 @@ namespace Onion.Domain.Product_agg
         bool Edit (int id, int UnitPrice, string Name, int CategoryId, out string Error);
         void Activate(Product product);
         void DeActivate(Product product);
-
+        bool Exist (string name, int categoryId);
         bool SaveChanges(out string Error);
         List<Product> Search(string name);
 

@@ -8,7 +8,7 @@ namespace Onion.Application.Contracts
 {
     public class CreateProductCommand
     {
-        public int UintPrice { get;  set; }
+        public int UnitPrice { get;  set; }
         public string Name { get;  set; }
         public int CategoryId{ get; set; }
        
