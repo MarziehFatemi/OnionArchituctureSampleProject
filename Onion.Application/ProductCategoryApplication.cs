@@ -10,7 +10,7 @@ namespace Onion.Application
 {
     public class ProductCategoryApplication : IProductCategoryApplication
     {
-        private readonly IProductCategoryRepository ProductCatecoryRepository; 
+        private readonly IProductCategoryRepository ProductCatecoryRepository;
 
         public ProductCategoryApplication(IProductCategoryRepository productCatecoryRepository)
         {
@@ -37,9 +37,9 @@ namespace Onion.Application
                 }
                 else
                 {
-                    return false; 
+                    return false;
                 }
-             }
+            }
         }
 
         public bool Edit(EditProductCategoryCommand Command, out string Error)
@@ -59,10 +59,10 @@ namespace Onion.Application
 
         public List<ProductCategoryViewModel> Search(string name)
         {
-            ProductCategoryViewModel Instance = new ProductCategoryViewModel(); 
-            return Instance.MapFromProductCategory(ProductCatecoryRepository.Search(name)); 
-        
-                    
+            ProductCategoryViewModel Instance = new ProductCategoryViewModel();
+            return Instance.MapFromProductCategory(ProductCatecoryRepository.Search(name));
+
+
         }
 
         public List<ProductCategoryViewModel> GetAll()
@@ -72,5 +72,16 @@ namespace Onion.Application
 
 
         }
+
+
+        public EditProductCategoryCommand GetEntity(int Id)
+        {
+            var Command = new EditProductCategoryCommand(Id,
+                ProductCatecoryRepository.Get(Id).Name);
+
+            return Command;
+        }
+       
+
     }
 }

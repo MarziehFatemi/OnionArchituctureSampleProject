@@ -11,9 +11,9 @@ namespace Onion.Application.Contracts
        
         bool Create(CreateProductCategoryCommand Command, out string Error);
         bool Edit (EditProductCategoryCommand Command, out string Error);
-        List<ProductCategoryViewModel> Search(string name);
+         List<ProductCategoryViewModel> Search(string name);
         List<ProductCategoryViewModel> GetAll();
-
+        EditProductCategoryCommand GetEntity(int Id); 
 
     }
 }

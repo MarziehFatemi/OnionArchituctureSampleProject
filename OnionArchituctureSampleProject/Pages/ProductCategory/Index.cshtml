@@ -27,8 +27,7 @@
 <th>@_ProductCategory.Name</th>
 <th>@_ProductCategory.CreationDate</th>
 <th>
-	<a  asp-page ="/Edit" class="btn btn-info" > ویرایش </a>
-	<a  asp-page-handler ="Delete" class="btn btn-danger" >  غیر فعال کردن</a>
+	<a  asp-page ="/ProductCategory/Edit"  asp-route-id ="@_ProductCategory.Id"  class="btn btn-info" >  غیر فعال کردن</a>
 </th>
 
 </tr>

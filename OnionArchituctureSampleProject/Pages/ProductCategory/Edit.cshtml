@@ -1,0 +1,28 @@
+﻿@page
+@model OnionArchituctureSampleProject.Pages.ProductCategory.EditModel
+@{
+}
+ @if (ViewData["Error"]!= null)
+{
+	<div class="alert-danger">
+		<p> @ViewData["Error"]</p>
+	</div>
+
+}
+
+
+<form class="mr-auto ml-auto" method="post">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="@Model.Command.Name"></label>
+            <input class="form-control" asp-for="@Model.Command.Name" placeholder="@Model.Command.Name">
+            <span asp-validation-for="@Model.Command.Name" class="text-danger"></span>
+        
+            <input type="hidden" asp-for="@Model.Command.Id" value="@Model.Command.Id" >
+           
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">ارسال</button>
+</form>
+

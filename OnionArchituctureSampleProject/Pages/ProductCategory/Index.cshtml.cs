@@ -18,5 +18,7 @@ namespace OnionArchituctureSampleProject.Pages.ProductCategory
         {
             _ProductCategoryViewModel = _IProductCategoryApplication.GetAll(); 
         }
+
+        
     }
 }
