@@ -1,4 +1,5 @@
-﻿using Onion.Domain.Product_agg;
+﻿using Microsoft.EntityFrameworkCore;
+using Onion.Domain.Product_agg;
 
 namespace Onion.Infrastructure.EfCore.Repository
 {
@@ -19,7 +20,9 @@ namespace Onion.Infrastructure.EfCore.Repository
         public Product Get(int id)
         {
             #pragma warning disable CS8603 // Possible null reference return.
-            return _context.products.FirstOrDefault(c => c.Id == id);
+            return _context.products
+                .Include(c => c.Category)
+                .FirstOrDefault(c => c.Id == id);
             #pragma warning restore CS8603 // Possible null reference return.
         }
 
@@ -47,6 +50,7 @@ namespace Onion.Infrastructure.EfCore.Repository
         public List<Product> Search(string name)
         {
         return _context.products
+                .Include(c => c.Category)
                 .Where(c => c.Name.Contains(name))
                 .OrderBy(c => c.Id)
                 .ToList();
@@ -54,7 +58,9 @@ namespace Onion.Infrastructure.EfCore.Repository
         }
         public List<Product> GetAll()
         {
-            return _context.products.ToList();
+            return _context.products
+                .Include(c=>c.Category)
+                .ToList();
         }
 
         public void Activate(Product product)
