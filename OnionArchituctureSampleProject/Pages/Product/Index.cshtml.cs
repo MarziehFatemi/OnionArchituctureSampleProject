@@ -19,5 +19,36 @@ namespace OnionArchituctureSampleProject.Pages.Product
         {
             ProductsViewModel = _ProductApplication.GetAll(); 
         }
+
+        public IActionResult OnGetDeActivate (int id)
+        {
+            string Error = ""; 
+            if (!_ProductApplication.DeActivate(id, out Error))
+            { ViewData["Error"] = Error;
+                return Page();
+            }
+            else
+            {
+                return RedirectToAction("OnGet"); 
+            }
+
+        }
+        public IActionResult OnGetActivate(int id)
+        {
+            string Error = "";
+            if (!_ProductApplication.Activate(id, out Error))
+            {
+                ViewData["Error"] = Error;
+                return Page();
+            }
+            else
+            {
+                return RedirectToAction("OnGet");
+            }
+
+
+
+        }
+
     }
 }

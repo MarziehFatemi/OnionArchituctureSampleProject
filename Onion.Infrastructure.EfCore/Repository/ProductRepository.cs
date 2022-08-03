@@ -17,13 +17,25 @@ namespace Onion.Infrastructure.EfCore.Repository
             _context.Add(product); 
         }
 
-        public Product Get(int id)
+        public Product Get(int id, out bool IsNull, out string Error)
         {
-            #pragma warning disable CS8603 // Possible null reference return.
-            return _context.products
+            IsNull = false;
+            
+            var product = _context.products
                 .Include(c => c.Category)
                 .FirstOrDefault(c => c.Id == id);
-            #pragma warning restore CS8603 // Possible null reference return.
+            if (product == null)
+            {
+                IsNull = true;
+                Error = "داده مزبور موجود نیست";
+            }
+            else
+            {
+                Error = "داده با موفقیت دریافت شد"; 
+            }
+        #pragma warning disable CS8603 // Possible null reference return.
+            return product;
+         #pragma warning restore CS8603 // Possible null reference return.
         }
 
         public bool Exist ( string name, int Categoryid)
@@ -78,9 +90,11 @@ namespace Onion.Infrastructure.EfCore.Repository
 
         public bool Edit(int id, int UnitPrice, string Name, int CategoryId, out string Error)
         {
-            var Product = Get( id); 
+            bool IsNull = false;
+            
+            var Product = Get( id,out IsNull,out Error ); 
 
-            if (Product != null)
+            if (!IsNull)
             {
                 Product.Edit(UnitPrice, Name, CategoryId);
                 _context.products.Update(Product);
@@ -89,7 +103,6 @@ namespace Onion.Infrastructure.EfCore.Repository
             }
             else
             {
-                Error = "متغیر مزبور موجود نیست";
                 return false; 
             }
 

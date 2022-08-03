@@ -8,7 +8,7 @@ namespace Onion.Domain.Product_agg
 {
     public interface IProductRepository
     {
-        Product Get(int id);
+        Product Get(int id, out bool IsNull, out string Error);
         List<Product> GetAll();
         void Create(Product product);
         bool Edit (int id, int UnitPrice, string Name, int CategoryId, out string Error);

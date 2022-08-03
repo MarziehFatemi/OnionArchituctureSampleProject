@@ -20,14 +20,30 @@ namespace Onion.Application
         }
         public bool Activate(int id, out string Error)
         {
-            _IProductRepository.Activate(_IProductRepository.Get(id));
+            bool IsNull = false;
+            var product = _IProductRepository.Get(id, out IsNull,out Error);
+            if (IsNull)
+            {             
+                return false;
+
+            }
+
+            _IProductRepository.Activate(product);
            return  _IProductRepository.SaveChanges(out Error); 
 
 
         }
         public bool DeActivate(int id, out string Error)
         {
-            _IProductRepository.Activate(_IProductRepository.Get(id));
+            bool IsNull = false;
+            var product = _IProductRepository.Get(id, out IsNull, out Error);
+            if (IsNull)
+            {
+                return false; 
+
+            }
+            
+            _IProductRepository.DeActivate(product);
             return _IProductRepository.SaveChanges(out Error);
 
         }
@@ -75,7 +91,12 @@ namespace Onion.Application
 
         public EditProductCommand GetBy(int id)
         {
-            return DataMapping.Product2EditProduct( _IProductRepository.Get(id));
+            bool IsNull = false;
+            string Error = ""; 
+            var product = _IProductRepository.Get(id, out IsNull, out Error);
+           // if (!IsNull)
+            { return DataMapping.Product2EditProduct(product); }
+            
             
         }
     }
