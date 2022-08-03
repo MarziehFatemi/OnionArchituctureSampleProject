@@ -9,6 +9,10 @@ namespace Onion.Application.Contracts
     public  class EditProductCommand: CreateProductCommand
     {
         public int Id { get;  set; }
+        public EditProductCommand()
+        {
+
+        }
         public EditProductCommand(int id, string name, int unitPrice, int categoryId)
         {
 

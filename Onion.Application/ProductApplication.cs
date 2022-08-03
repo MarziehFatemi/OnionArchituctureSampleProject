@@ -89,13 +89,16 @@ namespace Onion.Application
           return DataMapping.ProductList2ProductViewModelList(_IProductRepository.GetAll()); 
         }
 
-        public EditProductCommand GetBy(int id)
+        public EditProductCommand GetBy(int id,out bool IsNull, out string Error)
         {
-            bool IsNull = false;
-            string Error = ""; 
+             
             var product = _IProductRepository.Get(id, out IsNull, out Error);
-           // if (!IsNull)
+             if (!IsNull)
             { return DataMapping.Product2EditProduct(product); }
+             else
+            {
+                return new EditProductCommand();
+            }
             
             
         }

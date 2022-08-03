@@ -10,6 +10,10 @@ namespace Onion.Application.Contracts
     {
         public int Id { get; set; }
 
+        public EditProductCategoryCommand()
+        {
+
+        }
         public EditProductCategoryCommand(int id, string name)
         {
             Id = id;
