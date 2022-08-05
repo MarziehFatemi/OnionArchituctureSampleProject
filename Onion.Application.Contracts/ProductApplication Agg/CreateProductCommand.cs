@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -12,16 +13,19 @@ namespace Onion.Application.Contracts
     {
         [DisplayName("قیمت")]
         [Required(ErrorMessage = "قیمت اجباری است")]
-         public int UnitPrice { get;  set; }
+        [JsonProperty(PropertyName = "unitPrice")]
+        public int UnitPrice { get;  set; }
 
         [DisplayName("نام")]
         [Required(ErrorMessage = "نام اجباری است")]
         [MaxLength(255)]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get;  set; }
 
         [DisplayName("گروه محصول")]
         [Required(ErrorMessage = "گروه محصول اجباری است")]
         [Range(1,100,ErrorMessage ="گروه محصول را درست انتخاب کنید محدودیت 100 محصول")]
+        [JsonProperty(PropertyName = "categoryId")]
         public int CategoryId{ get; set; }
        
     }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Onion.Application.Contracts
@@ -8,7 +9,7 @@ namespace Onion.Application.Contracts
         [DisplayName("نام")]
         [Required(ErrorMessage = "نام اجباری است")]
         [MaxLength(255)]
-
+        [JsonProperty(PropertyName = "name")]
         public string  Name { get; set; }
     }
 
